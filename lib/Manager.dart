@@ -144,7 +144,7 @@ class _PetListScreenState extends State<PetListScreen> {
                           'dataEntrada': _dataEntrada!.toIso8601String(),
                           'dataSaida': _dataSaida?.toIso8601String(),
                         };
-                        Api.add(novoPet);
+                        await Api.add(novoPet);
                         Navigator.of(context).pop();
                         setState(() {});
                       }
