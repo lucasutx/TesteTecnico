@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/HomeScreen.dart';
+import 'package:flutter_application_1/Listagem.dart';
 import 'package:flutter_application_1/Manager.dart';
 
 void main() {
@@ -12,11 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
       initialRoute: '/',
       routes: {
         '/':(context) => const homeScreen(),
         '/manager':(context) => const PetHotelApp(),
+        '/listagem':(context) => const Listagem(),
       },
     );
   }

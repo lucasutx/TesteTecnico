@@ -45,7 +45,7 @@ class homeScreen extends StatelessWidget {
                       Navigator.pushNamed(context, '/manager');
                     },
                     label: Text(
-                      "Começar",
+                      "Cadastre novos pets no hotel",
                       style: TextStyle(
                           fontSize: 18,
                           color: Color.fromARGB(255, 255, 255, 255)),
@@ -58,7 +58,24 @@ class homeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
-                  )
+                  ),
+                  SizedBox(height: 50,),
+                  ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed('/listagem');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 75, 202, 141),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                  child: const Text(
+                    'Ver lista de pets cadastrados',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
                 ],
               ),
             ),

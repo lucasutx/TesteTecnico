@@ -3,6 +3,8 @@ import 'package:flutter_application_1/services/api.dart';
 import 'package:intl/intl.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:flutter_application_1/Listagem.dart';
+
 
 class PetHotelApp extends StatelessWidget {
   const PetHotelApp({super.key});
@@ -55,31 +57,38 @@ class _PetListScreenState extends State<PetListScreen> {
                 children: [
                   TextFormField(
                     controller: _tutorNomeController,
-                    decoration: const InputDecoration(labelText: 'Nome do Tutor'),
-                    validator: (value) =>
-                        value == null || value.isEmpty ? 'Informe o nome' : null,
+                    decoration:
+                        const InputDecoration(labelText: 'Nome do Tutor'),
+                    validator: (value) => value == null || value.isEmpty
+                        ? 'Informe o nome'
+                        : null,
                   ),
                   TextFormField(
                     controller: _tutorContatoController,
-                    decoration: const InputDecoration(labelText: 'Contato do Tutor'),
-                    validator: (value) =>
-                        value == null || value.isEmpty ? 'Informe o contato' : null,
+                    decoration:
+                        const InputDecoration(labelText: 'Contato do Tutor'),
+                    validator: (value) => value == null || value.isEmpty
+                        ? 'Informe o contato'
+                        : null,
                   ),
                   DropdownButtonFormField<String>(
                     value: _especie,
                     decoration: const InputDecoration(labelText: 'Espécie'),
                     items: const [
-                      DropdownMenuItem(value: 'Cachorro', child: Text('Cachorro')),
+                      DropdownMenuItem(
+                          value: 'Cachorro', child: Text('Cachorro')),
                       DropdownMenuItem(value: 'Gato', child: Text('Gato')),
                     ],
                     onChanged: (value) => setState(() => _especie = value),
-                    validator: (value) => value == null ? 'Selecione uma espécie' : null,
+                    validator: (value) =>
+                        value == null ? 'Selecione uma espécie' : null,
                   ),
                   TextFormField(
                     controller: _racaController,
                     decoration: const InputDecoration(labelText: 'Raça'),
-                    validator: (value) =>
-                        value == null || value.isEmpty ? 'Informe a raça' : null,
+                    validator: (value) => value == null || value.isEmpty
+                        ? 'Informe a raça'
+                        : null,
                   ),
                   const SizedBox(height: 16),
                   Row(
@@ -135,7 +144,8 @@ class _PetListScreenState extends State<PetListScreen> {
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () async {
-                      if (_formKey.currentState!.validate() && _dataEntrada != null) {
+                      if (_formKey.currentState!.validate() &&
+                          _dataEntrada != null) {
                         final Map<String, dynamic> novoPet = {
                           'tutorNome': _tutorNomeController.text,
                           'tutorContato': _tutorContatoController.text,
@@ -145,7 +155,7 @@ class _PetListScreenState extends State<PetListScreen> {
                           'dataSaida': _dataSaida?.toIso8601String(),
                         };
                         await Api.add(novoPet);
-                        Navigator.of(context).pop();
+
                         setState(() {});
                       }
                     },
@@ -165,14 +175,14 @@ class _PetListScreenState extends State<PetListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF8F8F8),
-      body: const SafeArea(
+      body: SafeArea(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24),
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Controle de Hospedagem de Pets",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -181,8 +191,8 @@ class _PetListScreenState extends State<PetListScreen> {
                     color: Colors.blueGrey,
                   ),
                 ),
-                SizedBox(height: 40),
-                Icon(
+                const SizedBox(height: 40),
+                const Icon(
                   Icons.pets,
                   size: 120,
                   color: Colors.blueGrey,
@@ -194,6 +204,8 @@ class _PetListScreenState extends State<PetListScreen> {
                     )
                   ],
                 ),
+                const SizedBox(height: 50),
+                
               ],
             ),
           ),

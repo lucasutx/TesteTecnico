@@ -34,6 +34,22 @@ app.post("/pets", (req, res) => {
   });
 });
 
+//get
+app.get("/pets", (req, res) => {
+  if (dadosHotel.length > 0) {
+    res.status(200).send({
+      status_code: 200,
+      pets: dadosHotel,
+    });
+  } else {
+    res.status(200).send({
+      status_code: 200,
+      pets: [],
+    });
+  }
+});
+
+
 // Iniciar o servidor
 app.listen(2000, '0.0.0.0', () => {
   console.log("Servidor rodando em http://0.0.0.0:2000");
