@@ -49,7 +49,19 @@ app.get("/pets", (req, res) => {
   }
 });
 
+//delete
+app.post("/pets/:id", (req, res) => {
+  let id =req.params.id*1;
+  let dadosExcluir = dadosHotel.find(p=>p.id === id);
+  let index = dadosHotel.indexOf(dadosExcluir);
 
+  dadosHotel.splice(index,1);
+
+  res.status(204).send({
+    'status': 'sucess',
+    'message': 'Pet Excluido'
+  });
+})
 // Iniciar o servidor
 app.listen(2000, '0.0.0.0', () => {
   console.log("Servidor rodando em http://0.0.0.0:2000");

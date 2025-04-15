@@ -1,4 +1,5 @@
 class Hotel {
+  final int? id; // <- aceita nulo
   final String nameTutor;
   final String contatoTutor;
   final String especie;
@@ -7,6 +8,7 @@ class Hotel {
   final DateTime? dataSaida;
 
   Hotel({
+    this.id, // <- não é mais required
     required this.nameTutor,
     required this.contatoTutor,
     required this.especie,
@@ -14,7 +16,4 @@ class Hotel {
     required this.dataEntrada,
     this.dataSaida,
   });
-
-  
-  
 }

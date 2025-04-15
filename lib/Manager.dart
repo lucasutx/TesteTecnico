@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:flutter_application_1/Listagem.dart';
 
-
 class PetHotelApp extends StatelessWidget {
   const PetHotelApp({super.key});
 
@@ -46,9 +45,9 @@ class _PetListScreenState extends State<PetListScreen> {
         return Padding(
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
-            left: 16,
-            right: 16,
-            top: 24,
+            left: 25,
+            right: 25,
+            top: 40,
           ),
           child: SingleChildScrollView(
             child: Form(
@@ -144,9 +143,12 @@ class _PetListScreenState extends State<PetListScreen> {
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () async {
+                        var id = 0;
                       if (_formKey.currentState!.validate() &&
                           _dataEntrada != null) {
+                            id++;
                         final Map<String, dynamic> novoPet = {
+                          'id': id,
                           'tutorNome': _tutorNomeController.text,
                           'tutorContato': _tutorContatoController.text,
                           'especie': _especie,
@@ -155,7 +157,7 @@ class _PetListScreenState extends State<PetListScreen> {
                           'dataSaida': _dataSaida?.toIso8601String(),
                         };
                         await Api.add(novoPet);
-
+                        _limparCampos();
                         setState(() {});
                       }
                     },
@@ -169,6 +171,15 @@ class _PetListScreenState extends State<PetListScreen> {
         );
       },
     );
+  }
+
+  void _limparCampos() {
+    _tutorNomeController.clear();
+    _tutorContatoController.clear();
+    _racaController.clear();
+    _especie = null;
+    _dataEntrada = null;
+    _dataSaida = null;
   }
 
   @override
@@ -205,7 +216,6 @@ class _PetListScreenState extends State<PetListScreen> {
                   ],
                 ),
                 const SizedBox(height: 50),
-                
               ],
             ),
           ),

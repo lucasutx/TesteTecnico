@@ -6,8 +6,8 @@ import 'package:http/http.dart' as http;
 class Api {
   static const baseUrl = 'http://192.168.1.3:2000/';
 
-  /// Função para adicionar um pet
-  static Future<void> add(Map dados) async {
+  //Adiciona
+static Future<void> add(Map dados) async {
     final url = Uri.parse("${baseUrl}pets");
 
     try {
@@ -26,9 +26,7 @@ class Api {
       debugPrint("Erro na requisição: $e");
     }
   }
-
-  /// Função para listar os pets cadastrados
-
+  //Visualiza
 static Future<List<Hotel>> getPets() async {
   final url = Uri.parse("${baseUrl}pets");
 
@@ -64,4 +62,22 @@ static Future<List<Hotel>> getPets() async {
     return [];
   }
 }
+
+  //deleta
+static Future<void> deleta(id) async {
+  final url = Uri.parse("${baseUrl}pets/$id");
+
+  try {
+    final res = await http.post(url);
+
+    if (res.statusCode == 200 || res.statusCode == 204) {
+      debugPrint("Pet com id $id deletado com sucesso.");
+    } else {
+      debugPrint("Erro ao deletar pet: ${res.statusCode}");
+    }
+  } catch (e) {
+    debugPrint("Erro na requisição DELETE: $e");
+  }
+}
+ 
 }
