@@ -40,7 +40,7 @@ class _PetListScreenState extends State<PetListScreen> {
       isScrollControlled: true,
       builder: (context) {
         return Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(10),
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
@@ -89,7 +89,7 @@ class _PetListScreenState extends State<PetListScreen> {
                         child: Text(
                           _dataEntrada != null
                               ? 'Entrada: ${DateFormat('dd/MM/yyyy').format(_dataEntrada!)}'
-                              : 'Data de entrada não definida',
+                              : 'Data de entrada',
                         ),
                       ),
                       TextButton(
@@ -114,7 +114,7 @@ class _PetListScreenState extends State<PetListScreen> {
                         child: Text(
                           _dataSaida != null
                               ? 'Saída: ${DateFormat('dd/MM/yyyy').format(_dataSaida!)}'
-                              : 'Previsão de saída (opcional)',
+                              : 'Previsão de saída',
                         ),
                       ),
                       TextButton(
@@ -181,11 +181,11 @@ class _PetListScreenState extends State<PetListScreen> {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 24),
+            padding:  EdgeInsets.symmetric(horizontal: 12),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                 Text(
+              children: const [
+                Text(
                   "Controle de Hospedagem de Pets",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -194,13 +194,13 @@ class _PetListScreenState extends State<PetListScreen> {
                     color: Colors.blueGrey,
                   ),
                 ),
-                 SizedBox(height: 40),
-                 Icon(
+                SizedBox(height: 40),
+                Icon(
                   Icons.pets,
                   size: 120,
                   color: Colors.blueGrey,
                 ),
-                 SizedBox(height: 50),
+                SizedBox(height: 50),
               ],
             ),
           ),
@@ -209,7 +209,7 @@ class _PetListScreenState extends State<PetListScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: _abrirFormulario,
         backgroundColor: Colors.blueGrey,
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.white,
           size: 28,
