@@ -40,6 +40,7 @@ static Future<List<Hotel>> getPets() async {
       data['pets'].forEach((value) {
         listaPets.add(
           Hotel(
+            id: value['id'],
             nameTutor: value['tutorNome'],
             contatoTutor: value['tutorContato'],
             especie: value['especie'],
