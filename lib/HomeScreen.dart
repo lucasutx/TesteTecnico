@@ -13,8 +13,6 @@ class homeScreen extends StatelessWidget {
               Color(0xFFB3E5FC),
               Color(0xFFECE9E9),
             ],
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
           ),
         ),
         child: SafeArea(
@@ -39,7 +37,7 @@ class homeScreen extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                 SizedBox(height: 40),
+                 SizedBox(height: 70),
                   ElevatedButton.icon(
                     onPressed: () {
                       Navigator.pushNamed(context, '/manager');
@@ -48,18 +46,17 @@ class homeScreen extends StatelessWidget {
                       "Cadastre novos pets no hotel",
                       style: TextStyle(
                           fontSize: 18,
+                          fontWeight: FontWeight.bold ,
                           color: Color.fromARGB(255, 255, 255, 255)),
                     ),
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(
                           horizontal: 32, vertical: 16),
                       backgroundColor: Colors.blueAccent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
-                      ),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))
                     ),
                   ),
-                  SizedBox(height: 50,),
+                  SizedBox(height: 70,),
                   ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pushNamed('/listagem');
@@ -68,8 +65,7 @@ class homeScreen extends StatelessWidget {
                     backgroundColor: const Color.fromARGB(255, 75, 202, 141),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 24, vertical: 12),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12)),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))
                   ),
                   child: const Text(
                     'Ver lista de pets cadastrados',

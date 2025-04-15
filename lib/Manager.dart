@@ -38,17 +38,9 @@ class _PetListScreenState extends State<PetListScreen> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
       builder: (context) {
         return Padding(
-          padding: EdgeInsets.only(
-            bottom: MediaQuery.of(context).viewInsets.bottom,
-            left: 25,
-            right: 25,
-            top: 40,
-          ),
+          padding: EdgeInsets.all(20),
           child: SingleChildScrollView(
             child: Form(
               key: _formKey,
@@ -63,6 +55,7 @@ class _PetListScreenState extends State<PetListScreen> {
                         : null,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.numberWithOptions() ,
                     controller: _tutorContatoController,
                     decoration:
                         const InputDecoration(labelText: 'Contato do Tutor'),
@@ -89,7 +82,7 @@ class _PetListScreenState extends State<PetListScreen> {
                         ? 'Informe a raça'
                         : null,
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 30),
                   Row(
                     children: [
                       Expanded(
@@ -143,12 +136,11 @@ class _PetListScreenState extends State<PetListScreen> {
                   const SizedBox(height: 24),
                   ElevatedButton(
                     onPressed: () async {
-                        var id = 0;
+                        
                       if (_formKey.currentState!.validate() &&
                           _dataEntrada != null) {
-                            id++;
+                            
                         final Map<String, dynamic> novoPet = {
-                          'id': id,
                           'tutorNome': _tutorNomeController.text,
                           'tutorContato': _tutorContatoController.text,
                           'especie': _especie,
@@ -189,11 +181,11 @@ class _PetListScreenState extends State<PetListScreen> {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
+            padding:  EdgeInsets.symmetric(horizontal: 24),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                 Text(
                   "Controle de Hospedagem de Pets",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -202,20 +194,13 @@ class _PetListScreenState extends State<PetListScreen> {
                     color: Colors.blueGrey,
                   ),
                 ),
-                const SizedBox(height: 40),
-                const Icon(
+                 SizedBox(height: 40),
+                 Icon(
                   Icons.pets,
                   size: 120,
                   color: Colors.blueGrey,
-                  shadows: [
-                    Shadow(
-                      blurRadius: 10,
-                      color: Colors.black12,
-                      offset: Offset(2, 2),
-                    )
-                  ],
                 ),
-                const SizedBox(height: 50),
+                 SizedBox(height: 50),
               ],
             ),
           ),
@@ -224,7 +209,7 @@ class _PetListScreenState extends State<PetListScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: _abrirFormulario,
         backgroundColor: Colors.blueGrey,
-        child: const Icon(
+        child: Icon(
           Icons.add,
           color: Colors.white,
           size: 28,

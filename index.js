@@ -1,4 +1,4 @@
-// index.js - Servidor Node.js com rota /pets
+
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const dadosHotel = [];
 
-// Rota POST - adicionar pet
+// POST - add pet
 app.post("/pets", (req, res) => {
   console.log("Recebido:", req.body);
 
@@ -34,7 +34,7 @@ app.post("/pets", (req, res) => {
   });
 });
 
-//get
+//get - visualiza 
 app.get("/pets", (req, res) => {
   if (dadosHotel.length > 0) {
     res.status(200).send({
@@ -49,7 +49,7 @@ app.get("/pets", (req, res) => {
   }
 });
 
-//delete
+//delete - apagar
 app.post("/pets/:id", (req, res) => {
   let id =req.params.id*1;
   let dadosExcluir = dadosHotel.find(p=>p.id === id);
@@ -64,5 +64,5 @@ app.post("/pets/:id", (req, res) => {
 })
 // Iniciar o servidor
 app.listen(2000, '0.0.0.0', () => {
-  console.log("Servidor rodando em http://0.0.0.0:2000");
+  console.log("Servidor rodando");
 });
